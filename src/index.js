@@ -1,17 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+const form = document.querySelector('form');
+const input = document.querySelector('.form-control');
+const list = document.querySelector('.list-group');
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const createTodo = (todo) => {
+  const li = document.createElement('li');
+  li.className =  'list-group-item';
+  li.textContent = todo;
+  list.appendChild(li);
+};
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const onSubmit = (e) => {
+  e.preventDefault();
+  const todo = input.value;
+  input.value = '';
+  createTodo(todo);
+};
+
+form.addEventListener('submit', onSubmit);
