@@ -1,1 +1,2 @@
-# Vanilla Redux App
+# Simple Todo List
+## JavaScript, Redux
